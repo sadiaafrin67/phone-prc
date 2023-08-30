@@ -15,9 +15,9 @@ const displayPhones = (phones, isShowAll) => {
    //  clear previous search
    phonesContainer.textContent = ''
 
-   // if(data.length == 0){
-   //    spinner(true)
-   // }
+   if(phones.length == 0){
+      spinner(true)
+   }
 
    // display show all button by conditions
    const showButton = document.getElementById('show-all-button')
@@ -53,6 +53,13 @@ const displayPhones = (phones, isShowAll) => {
      phonesContainer.appendChild(phoneCard)
     })
     spinner(false)
+    if(phones.length === 0){
+
+      // jodi error msg er p tag a cls add korte chai thn html a div create korte hbe nd seta by deafault hidden thakbe. seta js a ase if condition er vitor remov hidden nd else a add hidden 
+      const errormsg = document.createElement('p')
+      errormsg.innerText = 'no data available'
+      phonesContainer.appendChild(errormsg)
+   }
 }
 
 // input search button for display phones
